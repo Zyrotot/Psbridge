@@ -1,5 +1,5 @@
 import flask
-from flask import request, redirect
+from flask import request
 from flask_cors import CORS
 from control import *
 

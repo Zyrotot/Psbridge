@@ -1,4 +1,7 @@
+from timeit import default_timer as timer
+
 def achaNumero(numero):
+    start = timer()
     count = 2
     while True:
         result = str(numero*count)
@@ -10,5 +13,11 @@ def achaNumero(numero):
             break
         else:
             count = count +1
+    end = timer()
+    elapsed = end - start
 
-    return result
+    response = {}
+    response['result'] = result
+    response['elapsed'] = elapsed
+
+    return response
