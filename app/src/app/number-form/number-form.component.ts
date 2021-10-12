@@ -15,14 +15,14 @@ export class NumberFormComponent{
     number: ['', Validators.required],
   });
 
-  static teste: string;
+  teste: string = '';
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
-    NumberFormComponent.teste = ''
+    this.teste = 'a'
    }
 
    get staticteste() {
-    return NumberFormComponent.teste;
+    return this.teste;
   }
 
   onSubmit(): void {
@@ -39,7 +39,7 @@ export class NumberFormComponent{
     let options = { headers: headers};
   
     this.http.post('http://localhost:5000/', values, options).subscribe(
-      result => NumberFormComponent.teste = JSON.stringify(result)
+      result => this.teste = JSON.stringify(result)
     )
   }
 }
