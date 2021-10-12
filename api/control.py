@@ -4,7 +4,8 @@ def achaNumero(numero):
         result = str(numero*count)
         verification = set()
         for digito in result:
-            verification.add(digito)
+            if digito.isnumeric():
+                verification.add(digito)
         if len(verification) < 3:
             break
         else:
