@@ -3,7 +3,7 @@ services:
     angular:
         build:
             context: ./
-            dockerfile: FlaskDocker
+            dockerfile: AngularDocker
         volumes:
             - ./app/:/usr/local/app/
         ports:
@@ -16,15 +16,3 @@ services:
             - ./api/:/api
         ports:
           - 5000:5000
-    db:
-        image: mysql:latest
-        volumes:
-            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-            - ./datadb:/var/lib/mysql
-        expose:
-            - 3006
-        environment:
-            - MYSQL_DATABASE=db
-            - MYSQL_ROOT_PASSWORD=dev.db
-            - MYSQL_USER=dev
-            - MYSQL_PASSWORD=pass

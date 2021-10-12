@@ -13,6 +13,7 @@ ENV FLASK_APP=/api/api.py
 
 # install python dependencies
 RUN pip install flask
+RUN pip install flask_cors
 RUN pip install mysql-connector-python
 
 # entrypoint
