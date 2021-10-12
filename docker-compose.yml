@@ -7,7 +7,7 @@ services:
         volumes:
             - ./app/:/usr/local/app/
         ports:
-            - 3001:80
+            - 3000:80
     flask:
         build:
             context: ./
