@@ -21,8 +21,14 @@ export class NumberFormComponent{
     this.show = ''
    }
 
-   get getshow() {
-    return this.show;
+   get getResultado() {
+    var json = JSON.parse(this.show);
+    return json.result;
+  }
+
+  get getTempo() {
+    var json = JSON.parse(this.show);
+    return json.elapsed;
   }
 
   onSubmit(): void {
