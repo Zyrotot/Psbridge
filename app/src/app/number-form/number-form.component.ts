@@ -15,7 +15,15 @@ export class NumberFormComponent{
     number: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  static teste: string;
+
+  constructor(private fb: FormBuilder, private http: HttpClient) {
+    NumberFormComponent.teste = ''
+   }
+
+   get staticteste() {
+    return NumberFormComponent.teste;
+  }
 
   onSubmit(): void {
     console.warn('Your order has been submitted', this.numberForm.value);
@@ -28,10 +36,10 @@ export class NumberFormComponent{
       'Access-Control-Allow-Origin': 'localhost',
     })
 
-    let options = { headers: headers };
+    let options = { headers: headers};
   
-    var response = this.http.post('http://localhost:5000/', values, options).subscribe(
-      response => console.log(response)
+    this.http.post('http://localhost:5000/', values, options).subscribe(
+      result => NumberFormComponent.teste = JSON.stringify(result)
     )
   }
 }
