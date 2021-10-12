@@ -1,0 +1,18 @@
+<form [formGroup]="numberForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="number">
+            Number
+        </label>
+        <input id="number" type="number" formControlName="number">
+    </div>
+
+    <button class="button" type="submit" [disabled]="!numberForm.valid">Send</button>
+    <div>
+        Resultado:
+        {{getResultado}}
+        <br>
+        Tempo decorrido:
+        {{getTempo}} segundos
+    </div>
+    
+  </form>

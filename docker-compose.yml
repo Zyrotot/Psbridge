@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+    angular:
+        build:
+            context: ./
+            dockerfile: AngularDocker
+        volumes:
+            - ./app/:/usr/local/app/
+        ports:
+            - 3001:80
+    flask:
+        build:
+            context: ./
+            dockerfile: FlaskDocker
+        volumes:
+            - ./api/:/api
+        ports:
+          - 5000:5000
