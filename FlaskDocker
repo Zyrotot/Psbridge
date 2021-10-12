@@ -1,0 +1,19 @@
+###########
+# BUILDER #
+###########
+
+# pull official base image
+FROM python:3
+
+# mount environment to build
+RUN mkdir -p /api
+COPY api /api
+
+ENV FLASK_APP=/api/api.py
+
+# install python dependencies
+RUN pip install flask
+RUN pip install mysql-connector-python
+
+# entrypoint
+ENTRYPOINT python3 /api/api.py
